@@ -9,10 +9,11 @@ import practice03.adapter.before.SortBoy;
 public class SortboyAdapter implements Sorter{
 
 	public void sort(String[] list) {
-		List myList = Arrays.asList(list);
+		List<String> myList = Arrays.asList(list);
 		SortBoy sortBoy = new SortBoy(myList);
-		myList = sortBoy.sortCloneList();
-		list = (String[])myList.toArray();
+		List<String> sorted = sortBoy.sortCloneList();
+		for (int i = 0; i < list.length; i++) {
+			list[i] = sorted.get(i);
+		}
 	}
-
 }
